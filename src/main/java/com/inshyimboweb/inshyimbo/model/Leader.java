@@ -9,6 +9,8 @@ public class Leader {
     private String fullName;
     private float rating;
     private int rates;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Level level;
     
     public Leader() {
     }
