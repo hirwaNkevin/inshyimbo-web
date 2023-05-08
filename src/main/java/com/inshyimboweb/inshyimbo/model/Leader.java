@@ -12,6 +12,18 @@ public class Leader {
     @ManyToOne(fetch = FetchType.LAZY)
     private Level level;
     
+    public Leader(Level level) {
+        this.level = level;
+    }
+
+    public Leader(String id, String fullName, float rating, int rates, Level level) {
+        Id = id;
+        this.fullName = fullName;
+        this.rating = rating;
+        this.rates = rates;
+        this.level = level;
+    }
+
     public Level getLevel() {
         return level;
     }
