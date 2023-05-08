@@ -8,8 +8,13 @@ public class Level {
     @Id
     private String Id;
     private String name;
-
+    
     public Level() {
+    }
+    
+    public Level(String id, String name) {
+        Id = id;
+        this.name = name;
     }
     
     public String getId() {
