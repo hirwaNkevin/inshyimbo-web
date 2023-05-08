@@ -17,7 +17,7 @@ import com.inshyimboweb.inshyimbo.service.LevelService;
 
 @RestController
 @RequestMapping("/level")
-public class LevelController {
+public class ILevelController {
     @Autowired
     LevelService levelService;
 
