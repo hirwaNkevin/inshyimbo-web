@@ -8,8 +8,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inshyimboweb.inshyimbo.model.Level;
@@ -28,7 +30,8 @@ public class ILevelController {
     }
     
     @GetMapping("/get")
-    public ResponseEntity<Level> getLevel(@RequestBody String Id){
+    public ResponseEntity<Level> getLevel(@RequestParam String Id){
+        System.out.println(Id);
         Level savedLevel = levelService.getLevel(Id);
         return new ResponseEntity<>(savedLevel, HttpStatus.FOUND);
     }
@@ -40,7 +43,7 @@ public class ILevelController {
     }
 
     @DeleteMapping("/delete")
-    public ResponseEntity<Boolean> deleteLevel(@RequestBody String Id){
+    public ResponseEntity<Boolean> deleteLevel(@RequestParam String Id){
         Boolean isDeleted = levelService.deleteLevel(Id);
         return new ResponseEntity<>(isDeleted, HttpStatus.OK);
     }

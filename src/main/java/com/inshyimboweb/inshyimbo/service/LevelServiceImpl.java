@@ -43,6 +43,7 @@ public Level updateLevel(Level level) {
 
 @Override
 public Level getLevel(String Id) {
+    System.out.println(Id);
     return (Level) repo.findById(Id).orElse(null);
 }
 
