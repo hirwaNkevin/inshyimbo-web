@@ -45,7 +45,7 @@ public class ILevelController {
         return new ResponseEntity<>(isDeleted, HttpStatus.OK);
     }
 
-    @GetMapping("/get")
+    @GetMapping("/all")
     public ResponseEntity<List<Level>> findAll(){
         List<Level> levels = levelService.findAll();
         return new ResponseEntity<>(levels, HttpStatus.FOUND);
