@@ -12,4 +12,6 @@ public interface LeaderService {
     public Leader getLeader(String Id);
     
     public List<Leader> findAllByLevel(Level level);
+    public List<Leader> findAll();
+
 }
