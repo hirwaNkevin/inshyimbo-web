@@ -55,7 +55,8 @@ public class ILeaderController{
 
     @GetMapping("/get-all-by")
     public ResponseEntity<List<Leader>> findAllByLevel(@RequestBody Level level) {
-        return null;
+        List<Leader> leaders = leaderService.findAllByLevel(level);
+        return new ResponseEntity<>(leaders, HttpStatus.FOUND);
     }
 
     @GetMapping("/get-all")

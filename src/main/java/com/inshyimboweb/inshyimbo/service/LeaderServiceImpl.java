@@ -3,11 +3,13 @@ package com.inshyimboweb.inshyimbo.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.inshyimboweb.inshyimbo.model.Leader;
 import com.inshyimboweb.inshyimbo.model.Level;
 import com.inshyimboweb.inshyimbo.repo.LeaderRepo;
 
+@Service
 public class LeaderServiceImpl implements LeaderService{
 
     @Autowired
@@ -48,7 +50,7 @@ public class LeaderServiceImpl implements LeaderService{
 
     @Override
     public List<Leader> findAllByLevel(Level level) {
-        return repo.findAll();
+        return repo.findAll(level.getId());
     }
 
     @Override
