@@ -7,5 +7,5 @@ public interface IUserService {
     public Boolean deleteIUser(String Id);
     public IUser updateIUser(IUser IUser);
 
-    public Boolean rateLeader(int rating);
+    public Boolean rateLeader(int rating, String leaderId);
 }
