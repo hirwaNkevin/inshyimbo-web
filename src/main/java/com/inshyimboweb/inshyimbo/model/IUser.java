@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 @Entity
 public class IUser {
     @Id
-    private String NID;
+    private String Id;
     private String fullName;
     private String password;
     
@@ -13,18 +13,18 @@ public class IUser {
     public IUser() {
     }
 
-    public IUser(String nID, String fullName, String password) {
-        NID = nID;
+    public IUser(String id, String fullName, String password) {
+        Id = id;
         this.fullName = fullName;
         this.password = password;
     }
 
-    public String getNID() {
-        return NID;
+    public String getId() {
+        return Id;
     }
 
-    public void setNID(String nID) {
-        NID = nID;
+    public void setId(String id) {
+        Id = id;
     }
 
     public String getFullName() {

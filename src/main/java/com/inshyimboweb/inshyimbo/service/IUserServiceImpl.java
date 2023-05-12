@@ -14,6 +14,7 @@ public class IUserServiceImpl implements IUserService{
 
     @Autowired
     IUserRepo repo;
+    @Autowired
     LeaderRepo leadRepo;
 
     @Override
@@ -33,9 +34,9 @@ public class IUserServiceImpl implements IUserService{
 
     @Override
     public IUser updateIUser(IUser user) {
-        IUser user2Update = (IUser) repo.findById(user.getNID()).orElse(null);
+        IUser user2Update = (IUser) repo.findById(user.getId()).orElse(null);
     if (user2Update != null) {
-        user2Update.setNID(user.getNID());
+        user2Update.setId(user.getId());
         user2Update.setFullName(user.getFullName());
         user2Update.setPassword(user.getPassword());
         repo.save(user2Update);
@@ -46,9 +47,14 @@ public class IUserServiceImpl implements IUserService{
 
     @Override
     public Boolean rateLeader(int rating, String leaderId) {
-        Leader leader = leadRepo.findById(leaderId).orElse(null);
-        leader.setRates(leader.getRates()+1);
-        leader.setRating(calcRating(leader.getRates(), rating, leader.getRating()));
+        Leader leader = (Leader) leadRepo.findById(leaderId).orElse(null);
+        float calculatedRating = calcRating(leader.getRates(), rating, leader.getRating());
+        if(calculatedRating != (float)0.0){
+            leader.setRating(calculatedRating);
+            leader.setRates(leader.getRates()+1);
+            leadRepo.save(leader);
+            return true;
+        }
         return false;
     }
 
