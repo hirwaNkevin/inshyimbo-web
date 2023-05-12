@@ -30,7 +30,7 @@ public class IUserController {
     @GetMapping("/get")
     public ResponseEntity<IUser> addIUser(@RequestParam String Id) {
         IUser savedUser = userService.getIUser(Id);
-        return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
+        return new ResponseEntity<>(savedUser, HttpStatus.FOUND);
     }
 
     @DeleteMapping("/delete")
