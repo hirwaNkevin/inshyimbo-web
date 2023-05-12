@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 // import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,6 +25,11 @@ public class IUserController {
     @PostMapping("/save")
     public ResponseEntity<IUser> addIUser(@RequestBody IUser IUser) {
         IUser savedUser = userService.addIUser(IUser);
+        return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
+    }
+    @GetMapping("/get")
+    public ResponseEntity<IUser> addIUser(@RequestParam String Id) {
+        IUser savedUser = userService.getIUser(Id);
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
 
