@@ -62,5 +62,10 @@ public class IUserServiceImpl implements IUserService{
         leaderRating = ((rates*leaderRating) + rating)/(rates + 1);
         return leaderRating;
     }
+
+    @Override
+    public IUser getIUser(String Id) {
+        return (IUser) repo.findById(Id).orElse(null);
+    }
     
 }
